@@ -1,0 +1,35 @@
+// JSON Document
+// manifest file
+{
+  "name": "Handsy URL",
+  "description": "Grabs all URL's and display's them in modal",
+  "version": "1.0",
+  "permissions": [
+    "activeTab" 
+  ],
+	
+  // runs in the background of the web 
+  "background": {
+    "scripts": ["controller.js", "jquery-3.3.1.min.js", "view.css"],
+    //"scripts": ["background.js"],
+    "persistent": false
+  },
+  
+  "browser_action": {
+    "default_title": "jQuery Extension Demo"
+  },
+  // when the page is loaded	
+  "content_scripts": [ 
+    {
+        "matches": ["<all_urls>"],
+        "js": [
+			"jquery-3.3.1.min.js",
+			"element_adder.js"
+		],
+		"css":["view.css"]
+    }
+  ],
+  "manifest_version": 2
+}
+
+
